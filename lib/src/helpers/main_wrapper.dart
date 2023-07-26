@@ -29,39 +29,48 @@ class _MainWrapperState extends State<MainWrapper> {
     setState(() {
       currentIndex = index;
     });
-    pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 400), curve: Curves.linear);
+    pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 400),
+      curve: Curves.linear,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: pages,
-      ),
-      bottomNavigationBar: WaterDropNavBar(
-        bottomPadding: 10.0,
-        waterDropColor: Colors.deepPurpleAccent,
-        backgroundColor: Colors.white,
-        onItemSelected: onTap,
-        selectedIndex: currentIndex,
-        barItems: [
-          BarItem(
-            filledIcon: Icons.home_filled,
-            outlinedIcon: Icons.home_outlined,
-          ),
-          BarItem(
+      child: Scaffold(
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: pageController,
+          children: pages,
+        ),
+        bottomNavigationBar: WaterDropNavBar(
+          bottomPadding: 10.0,
+          waterDropColor: Colors.deepPurpleAccent,
+          backgroundColor: Colors.white,
+          onItemSelected: onTap,
+          selectedIndex: currentIndex,
+          barItems: [
+            BarItem(
+              filledIcon: Icons.home_filled,
+              outlinedIcon: Icons.home_outlined,
+            ),
+            BarItem(
               filledIcon: Icons.favorite_rounded,
-              outlinedIcon: Icons.favorite_border_rounded),
-          BarItem(
+              outlinedIcon: Icons.favorite_border_rounded,
+            ),
+            BarItem(
               filledIcon: Icons.mail,
-              outlinedIcon: Icons.mail_outline_outlined),
-          BarItem(filledIcon: Icons.people, outlinedIcon: Icons.people_outline),
-        ],
+              outlinedIcon: Icons.mail_outline_outlined,
+            ),
+            BarItem(
+              filledIcon: Icons.people,
+              outlinedIcon: Icons.people_outline,
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

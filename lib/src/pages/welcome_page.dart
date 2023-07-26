@@ -2,9 +2,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shape_of_view_null_safe/shape_of_view_null_safe.dart';
-import 'package:travel/src/helpers/main_wrapper.dart';
-import 'package:travel/src/models/welcome_model.dart';
-import 'package:travel/src/widgets/reuseable_text.dart';
+import '../helpers/main_wrapper.dart';
+import '../models/welcome_model.dart';
+import '../widgets/reuseable_text.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -30,7 +30,7 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 243, 243, 243),
@@ -43,7 +43,7 @@ class _WelcomePageState extends State<WelcomePage> {
             itemCount: welcomeComponents.length,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              WelcomeModel current = welcomeComponents[index];
+              final WelcomeModel current = welcomeComponents[index];
               return SizedBox(
                 width: size.width,
                 height: size.height,
@@ -55,9 +55,10 @@ class _WelcomePageState extends State<WelcomePage> {
                       height: size.height * 0.4,
                       child: Padding(
                         padding: EdgeInsets.only(
-                            left: size.width * 0.1,
-                            top: size.height * 0.04,
-                            right: size.width * 0.01),
+                          left: size.width * 0.1,
+                          top: size.height * 0.04,
+                          right: size.width * 0.01,
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -66,10 +67,11 @@ class _WelcomePageState extends State<WelcomePage> {
                               children: [
                                 FadeInRight(
                                   child: AppText(
-                                      text: current.title,
-                                      size: 40,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500),
+                                    text: current.title,
+                                    size: 40,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                                 FadeInLeft(
                                   child: AppText(
@@ -83,7 +85,8 @@ class _WelcomePageState extends State<WelcomePage> {
                                   delay: const Duration(milliseconds: 400),
                                   child: Padding(
                                     padding: EdgeInsets.only(
-                                        top: size.height * 0.02),
+                                      top: size.height * 0.02,
+                                    ),
                                     child: SizedBox(
                                       width: size.width * 0.8,
                                       child: AppText(
@@ -99,7 +102,8 @@ class _WelcomePageState extends State<WelcomePage> {
                                   duration: const Duration(milliseconds: 1100),
                                   child: Padding(
                                     padding: EdgeInsets.only(
-                                        top: size.height * 0.08),
+                                      top: size.height * 0.08,
+                                    ),
                                     child: MaterialButton(
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(15),
@@ -109,10 +113,12 @@ class _WelcomePageState extends State<WelcomePage> {
                                       color: Colors.deepPurpleAccent,
                                       onPressed: () {
                                         Navigator.push(
-                                            context,
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    const MainWrapper()));
+                                          context,
+                                          CupertinoPageRoute(
+                                            builder: (context) =>
+                                                const MainWrapper(),
+                                          ),
+                                        );
                                       },
                                       child: const AppText(
                                         text: "Let's Go",
@@ -139,8 +145,9 @@ class _WelcomePageState extends State<WelcomePage> {
                                   },
                                   child: AnimatedContainer(
                                     margin: EdgeInsets.only(
-                                        right: size.width * 0.01,
-                                        bottom: size.height * 0.008),
+                                      right: size.width * 0.01,
+                                      bottom: size.height * 0.008,
+                                    ),
                                     width: 10,
                                     height: index == indexDots ? 55 : 10,
                                     duration: const Duration(milliseconds: 200),
@@ -149,7 +156,11 @@ class _WelcomePageState extends State<WelcomePage> {
                                       color: index == indexDots
                                           ? Colors.deepPurpleAccent
                                           : const Color.fromARGB(
-                                              255, 193, 170, 255),
+                                              255,
+                                              193,
+                                              170,
+                                              255,
+                                            ),
                                     ),
                                   ),
                                 ),

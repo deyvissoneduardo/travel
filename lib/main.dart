@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel/src/pages/welcome_page.dart';
+
+import 'src/pages/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        title: 'Flutter Travel App',
-        debugShowCheckedModeBanner: false,
-        home: WelcomePage());
+      title: 'Flutter Travel App',
+      debugShowCheckedModeBanner: false,
+      home: WelcomePage(),
+    );
   }
 }
