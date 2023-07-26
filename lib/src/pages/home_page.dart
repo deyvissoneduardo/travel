@@ -2,7 +2,14 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../helpers/main_wrapper.dart';
+import '../models/category_model.dart';
+import '../models/people_also_like_model.dart';
+import '../models/tab_bar_model.dart';
+import '../widgets/painter.dart';
+import '../widgets/reuseabale_middle_app_text.dart';
 import '../widgets/reuseable_text.dart';
+import 'details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
